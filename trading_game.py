@@ -1,9 +1,5 @@
 import random
 
-# -----------------------------
-# Simple market trading game
-# -----------------------------
-
 mid_price = 100.0
 position = 0
 cash = 0.0
