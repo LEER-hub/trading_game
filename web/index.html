@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <title>Mercury Markets — AI Commodity Exchange</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">M</span><span>MERCURY</span><small>MARKETS</small></div>
+    <div class="market-state"><span class="pulse"></span><span id="sourceLabel">SIMULATED MARKET</span></div>
+    <div class="account-summary">
+      <span><small>Equity</small><strong id="topEquity">$100,000.00</strong></span>
+      <span><small>Today</small><strong id="topPnl" class="positive">$0.00</strong></span>
+      <button class="icon-button" aria-label="Account">R</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="watchlist panel">
+      <div class="panel-heading">
+        <div><span class="eyebrow">MARKETS</span><h2>Commodities</h2></div>
+        <button class="quiet-button" title="Streaming prices">LIVE</button>
+      </div>
+      <div class="search"><span>⌕</span><input id="assetSearch" placeholder="Search commodities" autocomplete="off"></div>
+      <div id="assetList" class="asset-list"></div>
+      <div class="scale-card">
+        <div><span class="pulse violet"></span><strong id="populationCount">6,000,000</strong></div>
+        <p>AI agents represented by live behavioral cohorts across all markets.</p>
+      </div>
+    </aside>
+
+    <section class="market-workspace">
+      <div class="instrument-header">
+        <div class="instrument-identity">
+          <span id="assetIcon" class="asset-icon large">Au</span>
+          <div><div class="title-row"><h1 id="assetName">Gold</h1><span id="assetSymbol" class="symbol">GOLD</span></div><p id="assetUnit">USD / troy oz</p></div>
+        </div>
+        <div class="price-block">
+          <strong id="mainPrice">2,384.20</strong>
+          <span id="mainChange" class="positive">+0.00%</span>
+        </div>
+      </div>
+
+      <div class="chart-card panel">
+        <div class="chart-toolbar">
+          <div class="chart-modes"><button class="active" data-mode="candles">Candles</button><button data-mode="line">Line</button></div>
+          <div id="rangeButtons" class="ranges"><button data-range="60">1M</button><button class="active" data-range="120">2M</button><button data-range="240">4M</button><button data-range="360">ALL</button></div>
+          <div class="live-clock"><span class="pulse"></span><span id="clock">--:--:--</span></div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="priceChart"></canvas>
+          <div id="chartTooltip" class="chart-tooltip hidden"></div>
+          <div id="latestPriceTag" class="price-tag">—</div>
+        </div>
+        <div class="volume-strip"><span>AI FLOW</span><div class="flow-bar"><i id="buyFlow"></i><i id="sellFlow"></i></div><span id="flowLabel">50% BUY</span></div>
+      </div>
+
+      <div class="market-grid">
+        <article class="stat-card panel"><span>ACTIVE THIS TICK</span><strong id="activeAgents">—</strong><small>weighted agents</small></article>
+        <article class="stat-card panel"><span>BUY ORDERS</span><strong id="aiBuys" class="positive">—</strong><small>aggregate flow</small></article>
+        <article class="stat-card panel"><span>SELL ORDERS</span><strong id="aiSells" class="negative">—</strong><small>aggregate flow</small></article>
+        <article class="stat-card panel"><span>AI SENTIMENT</span><strong id="sentiment">NEUTRAL</strong><small id="sentimentScore">0.00 signal</small></article>
+      </div>
+
+      <article class="news-card panel">
+        <div class="news-badge">AI NEWS</div>
+        <div><span class="eyebrow">LATEST MARKET CATALYST</span><h3 id="headline">AI market initializing</h3><p>Fictional scenario signals are explicitly marked. External prices, when enabled, are anchors rather than execution quotes.</p></div>
+      </article>
+    </section>
+
+    <aside class="trade-panel panel">
+      <div class="ticket-tabs"><button id="buyTab" class="active buy">Buy</button><button id="sellTab" class="sell">Sell</button></div>
+      <div class="ticket-body">
+        <div class="ticket-quote"><span>Market price</span><strong id="ticketPrice">—</strong></div>
+        <label for="quantity">Quantity</label>
+        <div class="quantity-control"><button id="decreaseQty">−</button><input id="quantity" type="number" value="1" min="0.01" max="10000" step="1"><button id="increaseQty">+</button></div>
+        <div class="estimate"><span>Estimated value</span><strong id="estimatedValue">$0.00</strong></div>
+        <button id="placeOrder" class="order-button buy">Buy GOLD</button>
+        <p class="execution-note">Simulated market order · no real funds</p>
+        <div id="orderMessage" class="order-message" role="status"></div>
+      </div>
+      <div class="portfolio-section">
+        <div class="section-title"><span>YOUR PORTFOLIO</span><span id="portfolioPnl" class="positive">$0.00</span></div>
+        <div class="portfolio-row"><span>Cash available</span><strong id="cash">$100,000.00</strong></div>
+        <div class="portfolio-row"><span id="positionLabel">Gold position</span><strong id="position">0</strong></div>
+        <div class="portfolio-row total"><span>Total equity</span><strong id="equity">$100,000.00</strong></div>
+      </div>
+      <div class="risk-warning"><strong>Simulation only</strong><p>This environment is for research and education. Prices and fills are not suitable for real trading decisions.</p></div>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
